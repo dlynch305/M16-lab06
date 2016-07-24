@@ -30,14 +30,14 @@ public class Car extends GeneralPathWrapper implements Shape
 		
 		Shape upwards = ShapeTransforms.verticallyFlippedCopyOf(top);
 
-		Ellipse2D.Double backTire= new Ellipse2D.Double(x+30 , y+30, 33, 33);
-		Ellipse2D.Double frontTire= new Ellipse2D.Double(x+150 , y+30, 33, 33);
+		Ellipse2D.Double backTire= new Ellipse2D.Double(x+ length * .17 , y+height*.4, .15*length, .15*length);
+		Ellipse2D.Double frontTire= new Ellipse2D.Double(x+ length *.8 , y+height *.4, .15*length, .15*length);
 		Rectangle2D.Double backlight =
 		    new Rectangle2D.Double(x, y, lightlength,
 					   lightheight);
 
 		Ellipse2D.Double frontlight =
-		    new Ellipse2D.Double(x+200, y, 10,20 );
+		    new Ellipse2D.Double(x+length, y, .04*length,.08*length );
 
 		Line2D.Double doorsep =
 		    new Line2D.Double (x+length/2, y,
