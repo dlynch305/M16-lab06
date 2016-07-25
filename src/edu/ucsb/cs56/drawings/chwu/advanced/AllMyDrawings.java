@@ -12,7 +12,7 @@ import edu.ucsb.cs56.drawings.utilities.GeneralPathWrapper;
 /**
  * A class with static methods for drawing various pictures
  * 
- * @author Phill Conrad
+ * @author Chi(Mark) Wu
  * @version for UCSB CS56, S16 
  */
 
@@ -50,10 +50,10 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(h2); 
 	
-	// Draw two sunglasses
+	// Draw two ShutterGlasses
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	ShutterGlasses hw1 = new ShutterGlasses(50,350,40,75);
+	ShutterGlasses hw2 = new ShutterGlasses(200,350,200,100);
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
@@ -72,20 +72,20 @@ public class AllMyDrawings
 	
 	// Draw some glasses.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
+	Glasses large = new Glasses(100,50,225,150);
+	Glasses small = new Glasses(20,50,40,30);
+	Glasses tallSkinny = new Glasses(20,150,20,40);
+	Glasses shortFat = new Glasses(20,250,40,20);
 	
 	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
+	g2.setColor(Color.GREEN);   g2.draw(small);
 	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
 	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
 	
 	Glasses h1 = new Glasses(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
-	// Make a black house that's half the size, 
+	// Make a black glasses that's half the size, 
 	// and moved over 150 pixels in x direction
 	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
 	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
@@ -108,15 +108,15 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(h2); 
 	
-	// Draw two houses with Windows
+	// Draw two ShutterGlasses
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	ShutterGlasses hw1 = new ShutterGlasses(50,350,40,75);
+	ShutterGlasses hw2 = new ShutterGlasses(200,350,200,100);
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); 
 	
-	// Rotate the second house 45 degrees around its center.
+	// Rotate the second ShutterGlasses 45 degrees around its center.
 	Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4.0);
 	
 	g2.draw(hw3);
@@ -125,23 +125,23 @@ public class AllMyDrawings
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
+	g2.drawString("A bunch of glasses and shutter glasses by Chi(Mark) Wu", 20,20);
     }
     
-    /** Draw a different picture with a few houses and coffee cups
+    /** Draw a different picture with glasses and shutter glasses
      */
     
     public static void drawPicture3(Graphics2D g2) {
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("A bunch of glasses by Chi(Mark) Wu", 20,20);
 	
 	
 	// Draw some coffee cups.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
+	Glasses large = new Glasses(100,50,225,150);
+	Glasses smallCC = new Glasses(20,50,40,30);
 	
 	g2.setColor(Color.RED);     g2.draw(large);
 	g2.setColor(Color.GREEN);   g2.draw(smallCC);

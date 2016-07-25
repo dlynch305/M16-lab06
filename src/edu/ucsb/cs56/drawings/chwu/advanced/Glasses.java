@@ -60,18 +60,18 @@ public class Glasses extends GeneralPathWrapper implements Shape
         
         Line2D.Double templeL = 
             new Line2D.Double (x, y + templeHeight,
-                               x * 1.25, y);
+                               x + width/2, y);
 	
         Line2D.Double templeR =
             new Line2D.Double (x + width, y + templeHeight,
-                               x + width * 1.25, y);
+                               x + width * 1.5, y);
 	// make the temple tips.
 	Line2D.Double templeTipL =
-	    new Line2D.Double (x * 1.25, y,
-			       x * 1.25, y * 1.25);
+	    new Line2D.Double (x + width/2, y,
+			       x + width/2, y + height/2);
 	Line2D.Double templeTipR =
-	    new Line2D.Double (x + width * 1.25, y,
-			       x + width * 1.25, y * 1.25);
+	    new Line2D.Double (x + width * 1.5, y,
+			       x + width * 1.5, y + height/2);
 
 	
         // put the whole glasses together
