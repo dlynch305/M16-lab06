@@ -117,22 +117,24 @@ public class AllMyDrawings
 	Shape p3 = ShapeTransforms.rotatedCopyOf(p2, Math.PI/4.0);
 	g2.draw(p3);
 
+	//Smartphones
 	PhoneWithButtons small = new PhoneWithButtons(70,50,50,75);
 	PhoneWithButtons medium = new PhoneWithButtons(100,250,100,150);
 	
 	g2.setColor(Color.GREEN);      g2.draw(small);
 	g2.setColor(Color.DARK_GRAY);  g2.draw(medium);
 	
-	//Rotate the small phone
+	//Rotate the small smartphone
 	Shape smartphone = ShapeTransforms.rotatedCopyOf(small, Math.PI/4.0);
 	smartphone = ShapeTransforms.translatedCopyOf(smartphone,200,0);
 	smartphone = ShapeTransforms.scaledCopyOfLL(smartphone,2,2);
 	g2.draw(smartphone);
-		
+
+	//Some impossible smartphones
 	PhoneWithButtons notAPhone1 = new PhoneWithButtons(300,250,225,150);
 	PhoneWithButtons notAPhone2 = new PhoneWithButtons(20,200,40,30);
 	
-	g2.setColor(Color.MAGENTA);      g2.draw(notAPhone1);
+	g2.setColor(Color.MAGENTA);  g2.draw(notAPhone1);
 	g2.setColor(Color.ORANGE);   g2.draw(notAPhone2);
 	
     }       

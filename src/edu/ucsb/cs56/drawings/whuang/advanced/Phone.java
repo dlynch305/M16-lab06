@@ -32,25 +32,25 @@ public class Phone extends GeneralPathWrapper implements Shape
     {
 	double screenWidth = width * 0.75;
 	double screenHeight = height * 0.8;
-	double screenYPosition = (height - screenHeight)/2;
-	double screenXPosition = (width - screenWidth)/2;
-	
-	double phoneEdgeArcWidth = screenXPosition * 2;
-	double phoneEdgeArcHeight = screenYPosition * 2;
+	double xScreenBezel = (width - screenWidth)/2;
+	double yScreenBezel = (height - screenHeight)/2;
+	double phoneEdgeArcWidth = xScreenBezel * 2;
+	double phoneEdgeArcHeight = yScreenBezel * 2;
 		
 	// Make the outline of the phone
 	RoundRectangle2D.Double phoneOutline =
 	    new RoundRectangle2D.Double(x, y,
 					width, height,
-					phoneEdgeArcWidth, phoneEdgeArcHeight);
+					phoneEdgeArcWidth,
+					phoneEdgeArcHeight);
 
-	// Make the screen of the phone
+	// Make the screen outline of the phone
 	Rectangle2D.Double screen =
-	    new Rectangle2D.Double(x + screenXPosition, y + screenYPosition,
+	    new Rectangle2D.Double(x + xScreenBezel,
+				   y + yScreenBezel,
 				   screenWidth, screenHeight);
 	
         // put the whole phone together
-
 	GeneralPath wholePhone = this.get();
 	wholePhone.append(phoneOutline, false);
 	wholePhone.append(screen, false);
