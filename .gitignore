@@ -1,6 +1,7 @@
 
 *~
 .ant-targets-build.xml
+.project
 
 images/
 javadoc/
