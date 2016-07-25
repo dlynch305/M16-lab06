@@ -12,21 +12,21 @@ import edu.ucsb.cs56.drawings.utilities.GeneralPathWrapper;
 /**
  * A class with static methods for drawing various pictures
  * 
- * @author Phill Conrad 
- * @version for UCSB CS56, W16 
+ * @author Phill Conrad
+ * @version for UCSB CS56, S16 
  */
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
+    /** Draw a picture with a few glasses 
      */
     
     public static void drawPicture1(Graphics2D g2) {
 	
-	House h1 = new House(100,250,50,75);
+	Glasses h1 = new Glasses(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
-	// Make a black house that's half the size, 
+	// Make a black glasses that's half the size, 
 	// and moved over 150 pixels in x direction
 	
 	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
@@ -50,7 +50,7 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(h2); 
 	
-	// Draw two houses with Windows
+	// Draw two sunglasses
 	
 	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
 	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
@@ -62,15 +62,15 @@ public class AllMyDrawings
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A few houses by Phill Conrad", 20,20);
+	g2.drawString("A few glasses by Chi(Mark) Wu", 20,20);
     }
     
     
-    /** Draw a picture with a few houses and coffee cups
+    /** Draw a picture with a few glasses
      */
     public static void drawPicture2(Graphics2D g2) {
 	
-	// Draw some coffee cups.
+	// Draw some glasses.
 	
 	CoffeeCup large = new CoffeeCup(100,50,225,150);
 	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
@@ -82,7 +82,7 @@ public class AllMyDrawings
 	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
 	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
 	
-	House h1 = new House(100,250,50,75);
+	Glasses h1 = new Glasses(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
 	// Make a black house that's half the size, 
