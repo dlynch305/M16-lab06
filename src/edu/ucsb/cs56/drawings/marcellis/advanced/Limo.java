@@ -32,8 +32,11 @@ public class Limo extends Car implements Shape
 	
 	//0.44 is used as width of limo center window because trunk+hood is 1/3 of width, and the windshields are 1/6, and the space between windshields and center is 1/18
 	// 1 - 1/3 - 1/6 - 1/18 = 0.44, the remaining width for the center window.
-	Rectangle2D.Double extraWindows = new Rectangle2D.Double(backWheelCenterXPos + width/12 + width/36, y - cabinHeight - roofHeight + roofHeight/6,
-															0.44*width, roofHeight*5/6);
+	Rectangle2D.Double extraWindows = new Rectangle2D.Double
+			(
+					backWheelCenterXPos + width/12 + width/36, y - cabinHeight - roofHeight + roofHeight/6,
+						0.44*width, roofHeight*5/6
+															);
 	
     Limo.append(extraWindows, false);
          
