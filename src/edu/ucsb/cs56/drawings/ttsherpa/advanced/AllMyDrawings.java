@@ -18,8 +18,10 @@ import edu.ucsb.cs56.drawings.utilities.GeneralPathWrapper;
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few Cars 
-     */
+    /** Draw a picture with a few Cars     
+	@param g2 g2 represents the Graphics2D drawing you are making.
+ */
+    
     
     public static void drawPicture1(Graphics2D g2) {
 
@@ -64,7 +66,8 @@ public class AllMyDrawings
     }
     
     
-    /** Draw a picture with a cars
+    /** Draw a picture with a few cars
+     @param g2 g2 represents the Graphics2D drawing you are making.
      */
     public static void drawPicture2(Graphics2D g2) {
 	
@@ -118,7 +121,8 @@ public class AllMyDrawings
     }
     
     /** Draw a different picture with a few different cars
-     */
+	@param g2 g2 represents the Graphics2D drawing you are making. 
+*/
     
     public static void drawPicture3(Graphics2D g2) {
 	

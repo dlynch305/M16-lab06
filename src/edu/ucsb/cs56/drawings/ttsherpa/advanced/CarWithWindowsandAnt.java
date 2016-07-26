@@ -9,8 +9,23 @@ import java.awt.geom.Ellipse2D;
 import edu.ucsb.cs56.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.drawings.utilities.GeneralPathWrapper;
 
+/**
+   A vector drawing of a car with windows because it extends the car class. Along with implementing the shape interface, and so can be drawn, as well as rotated, scaled, etc. 
+
+@author Tenzing Sherpa
+@version for CS56, M16, UCSB
+
+*/
+
 public class CarWithWindowsandAnt extends Car implements Shape
 {
+    /** Constructor that uses the super class to extend from the Car Class. 
+	
+@param x x coord of upper left corner of car
+@param y y coord of upper left corner of car
+@param length length of the car
+@param height of car (including first story and second story) 
+    */
     
     public CarWithWindowsandAnt(double x, double y, double length, double height){
 	super(x,y,length,height);

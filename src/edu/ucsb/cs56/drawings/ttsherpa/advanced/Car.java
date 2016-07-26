@@ -9,9 +9,27 @@ import java.awt.geom.Ellipse2D;
 import edu.ucsb.cs56.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.drawings.utilities.GeneralPathWrapper;
 
+/**
+   A vector drawing of a car that implements Shape interface, and so can be drawn as well as rotated, scaled, etc. 
+
+
+
+@author Tenzing Sherpa
+@version CS56, M16, UCSB
+ */
+
+
 public class Car extends GeneralPathWrapper implements Shape
 {
-
+    /**
+       Constructor
+    
+    @param x x coord is upper left corner of the car
+    @param y y coord is upper left corner of the car
+    @param length length of the car
+    @param height height of the car
+    */
+    
     public Car(double x, double y, double length, double height)
     {
 
