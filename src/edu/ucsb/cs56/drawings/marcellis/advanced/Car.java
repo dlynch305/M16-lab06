@@ -22,6 +22,8 @@ import edu.ucsb.cs56.drawings.marcellis.simple.Circle; //get access to the Circl
 */
 public class Car extends GeneralPathWrapper implements Shape
 {
+	
+    
     /**
        Constructor
        
@@ -30,6 +32,8 @@ public class Car extends GeneralPathWrapper implements Shape
        @param width width of the car
        @param height of the car (from bottom of wheels to top of roof)
     */
+	
+	
     public Car(double x, double y, double width, double height)
     {
 	
@@ -40,13 +44,22 @@ public class Car extends GeneralPathWrapper implements Shape
         // way.
         
         double wheelHeight = .25 * height;
-        double wheelCabinOverlap = 0.125;
-        double cabinHeight = (0.5 +  wheelCabinOverlap) * height;
-        double roofHeight = .25 * height;
-        
-        double backWheelCenterXPos = width/3 + x;
-        double frontWheelCenterXPos = width*2/3 + x;
+        double wheelCabinOverlap = wheelHeight/height/2;
+        double cabinHeight = (0.4 +  wheelCabinOverlap) * height;
+        double roofHeight = .35 * height;      
+        double backWheelCenterXPos = width/6 + x;
+        double frontWheelCenterXPos = width*5/6 + x;
         double wheelCenterYPos = y - wheelHeight/2;
+        double wheelRadius = wheelHeight/2;
+        
+        //check to make sure the wheels are a reasonable size and reposition if necessary
+        if (wheelHeight > width/4){
+        	wheelHeight = width/4;
+        	wheelRadius = wheelHeight/2;
+        	wheelCenterYPos = y - wheelHeight/2;
+        }
+        
+        
         
         //make the back wheel
         Circle backWheel = 
@@ -56,22 +69,73 @@ public class Car extends GeneralPathWrapper implements Shape
         Circle frontWheel =
         		new Circle(frontWheelCenterXPos, wheelCenterYPos, wheelHeight/2);
         
-        // make the roof.   Remember that y goes DOWN the page,
+        // make the cabin, trunk, and hood.   Remember that y goes DOWN the page,
         // so we ADD to y to get a "lower" value on the screen
         
-        Line2D.Double leftRoof = 
-            new Line2D.Double (x, y + roofHeight,
-                               x + width/2.0, y);
+        Line2D.Double bottomTrunk = 
+        		new Line2D.Double (x, y - wheelRadius,
+                               	backWheelCenterXPos - wheelRadius, y - wheelRadius);
+        
+        Line2D.Double sideTrunk =
+        		new Line2D.Double(x, y - wheelRadius,
+        						x, y - cabinHeight);
+        
+        Line2D.Double topTrunk =
+        		new Line2D.Double(x,  y - cabinHeight,
+        						backWheelCenterXPos, y - cabinHeight);
+        
+        Line2D.Double bottomHood = 
+        		new Line2D.Double(frontWheelCenterXPos + wheelRadius, y - wheelRadius,
+        						x + width, y - wheelRadius);
+        
+        Line2D.Double sideHood = 
+        		new Line2D.Double(x + width, y - wheelRadius,
+        						x + width, y - cabinHeight);
 	
-        Line2D.Double rightRoof =
-            new Line2D.Double (x + width/2.0, y,
-                               x + width, y + roofHeight);
+        Line2D.Double topHood =
+        		new Line2D.Double (x + width, y - cabinHeight,
+            					frontWheelCenterXPos, y - cabinHeight);
+        
+        Line2D.Double bottomCabin = 
+        		new Line2D.Double(backWheelCenterXPos + wheelRadius, y - wheelRadius,
+        						frontWheelCenterXPos - wheelRadius, y - wheelRadius);
+        
+        Line2D.Double frontCabin = 
+        		new Line2D.Double(frontWheelCenterXPos, y - cabinHeight,
+        						frontWheelCenterXPos, y - cabinHeight - roofHeight);
+        
+        Line2D.Double backCabin =
+        		new Line2D.Double(backWheelCenterXPos, y - cabinHeight,
+        						backWheelCenterXPos, y - cabinHeight - roofHeight);
+        
+        Line2D.Double roofCabin = 
+        		new Line2D.Double(backWheelCenterXPos, y - cabinHeight - roofHeight,
+        						frontWheelCenterXPos, y - cabinHeight - roofHeight);
+        
+        // create the car windows
+        Rectangle2D.Double frontWindshield = 
+        		new Rectangle2D.Double(frontWheelCenterXPos - width/12, y - cabinHeight - roofHeight + roofHeight/6,
+        						width/12, roofHeight*5/6);
+        
+        Rectangle2D.Double backWindshield =
+        		new Rectangle2D.Double(backWheelCenterXPos, y - cabinHeight - roofHeight + roofHeight/6, width/12,  roofHeight*5/6);
 	
         // put the whole house together
 	
-        GeneralPath wholeHouse = this.get();
-        wholeHouse.append(firstStory, false);
-        wholeHouse.append(leftRoof, false);
-        wholeHouse.append(rightRoof, false);    
+        GeneralPath wholeCar = this.get();
+        wholeCar.append(backWheel, false);
+        wholeCar.append(frontWheel, false);
+        wholeCar.append(bottomTrunk, false);
+        wholeCar.append(sideTrunk, false);
+        wholeCar.append(topTrunk, false);
+        wholeCar.append(bottomHood, false);
+        wholeCar.append(sideHood, false);
+        wholeCar.append(topHood, false);
+        wholeCar.append(bottomCabin, false);
+        wholeCar.append(frontCabin, false);
+        wholeCar.append(backCabin, false);
+        wholeCar.append(roofCabin, false);
+        wholeCar.append(frontWindshield, false);
+        wholeCar.append(backWindshield, false);
     }
 }
