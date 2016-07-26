@@ -39,8 +39,10 @@
     </javac>
   </target>
 
- <property name="public_javadoc_absolute_path" location="../lab06_javadoc_alanthetran/javadoc"/>
-    <target name="javadoc" depends="compile" description="publish javadoc">
+
+  <property name="public_javadoc_absolute_path" location="../lab06_javadoc_alanthetran/javadoc"/>
+
+  <target name="javadoc" depends="compile" description="publish javadoc">
     <delete dir="javadoc" quiet="true" />
     <javadoc  destdir="javadoc" author="true" version="true" use="true" >
       <fileset dir="src" includes="**/*.java"/>
@@ -64,7 +66,20 @@
     -->
     <chmod dir="${javadocDest}" perm="755"  type="dir" includes="**" />
     <chmod dir="${javadocDest}" perm="755"  type="file" includes="**/*" />
-    <echo>Javadoc deployed to ${javadocURL}</echo>
+    <echo>Javadoc deployed to ${javadocURL}
+    copying to ${public_javadoc_absolute_path}/index.html
+    </echo>
+    <delete quiet="true">
+      <fileset dir="${public_javadoc_absolute_path}" />
+    </delete>
+    <mkdir dir="${public_javadoc_absolute_path}" />
+    <copy todir="${public_javadoc_absolute_path}">
+      <fileset dir="javadoc" />
+    </copy>
+    <echo>
+      javadoc copied to ${public_javadoc_absolute_path}/index.html
+      TO PUBLISH: cd into that repo, then git add javadoc;
+    git commit -m "update javadoc"; git push origin gh-pages    </echo>
     <echo> or if not on CSIL, try file://${javadocDest}/index.html</echo>
   </target>
   
