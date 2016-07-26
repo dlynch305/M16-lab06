@@ -18,7 +18,7 @@ import edu.ucsb.cs56.drawings.utilities.GeneralPathWrapper;
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
+    /** Draw a picture with a few cats
      */
     
     public static void drawPicture1(Graphics2D g2) {
@@ -91,7 +91,7 @@ public class AllMyDrawings
      */
     public static void drawPicture2(Graphics2D g2) {
 	
-	// Draw some coffee cups.
+	// Draw some cats.
 	
       	FullCat large = new FullCat(100,50,150);
 	FullCat smallCC = new FullCat(20,50,40);
@@ -106,13 +106,13 @@ public class AllMyDrawings
 	CatHead cat1 = new CatHead(100,250,50);
 	g2.setColor(Color.CYAN); g2.draw(cat1);
 	
-	// Make a black house that's half the size, 
+	// Make a black cat that's half the size, 
 	// and moved over 150 pixels in x direction
 	Shape cat2 = ShapeTransforms.scaledCopyOfLL(cat1,0.5,0.5);
 	cat2 = ShapeTransforms.translatedCopyOf(cat2,150,0);
 	g2.setColor(Color.BLACK); g2.draw(cat2);
 	
-	// Here's a house that's 4x as big (2x the original)
+	// Here's a cat that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
 	cat2 = ShapeTransforms.scaledCopyOfLL(cat2,4,4);
 	cat2 = ShapeTransforms.translatedCopyOf(cat2,150,0);
@@ -136,7 +136,7 @@ public class AllMyDrawings
 	g2.draw(cat3);
 	g2.setColor(new Color(0x8F00FF)); 
 	
-	// Rotate the second house 45 degrees around its center.
+	// Rotate the second cat 45 degrees around its center.
 	Shape cat4 = ShapeTransforms.rotatedCopyOf(cat3, Math.PI/4.0);
 	
 	g2.draw(cat4);
@@ -148,9 +148,6 @@ public class AllMyDrawings
 	g2.drawString("Cats everywhere by Timothy Kwong", 20,20);
     }
 	
-    /** Draw a different picture with a few houses and coffee cups
-     */
-    
     public static void drawPicture3(Graphics2D g2) {
 		
 	g2.drawString("Cat Clan by Timothy Kwong", 20,20);
