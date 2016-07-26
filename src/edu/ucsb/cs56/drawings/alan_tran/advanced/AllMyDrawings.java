@@ -18,45 +18,41 @@ import edu.ucsb.cs56.drawings.utilities.GeneralPathWrapper;
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
+    /** Draw a picture with a box 
      */
     public static void drawPicture1(Graphics2D g2) {
-	Cube c2 = new Cube (150,150,150,150);
+	Square s2 = new Square (150,150,150,150);
 	g2.setColor(Color.BLACK);
-	g2.draw(c2);
+	g2.draw(s2);
 	g2.drawString("A Box By Alan Tran", 23,23);
     }
     
     
-     //Draw a picture with a few houses and coffee cups
+     //Draw a picture with boxes and presents
      
     public static void drawPicture2(Graphics2D g2) {
 	
-	// Draw some coffee cups.
+	// Draw some square.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
+	Square large = new Square(250,250,250,250);
+	Square smallS = new Square(50,50,50,50);
 	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
-	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
-	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
+       	g2.setColor(Color.RED);     g2.draw(large);
+	g2.setColor(Color.GREEN);   g2.draw(smallS);
+		
+	Square s1 = new Square(100,100,100,100);
+	g2.setColor(Color.CYAN); g2.draw(s1);
 	
-	House h1 = new House(100,250,50,75);
-	g2.setColor(Color.CYAN); g2.draw(h1);
-	
-	// Make a black house that's half the size, 
+	// Make a black box that's half the size, 
 	// and moved over 150 pixels in x direction
-	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	g2.setColor(Color.BLACK); g2.draw(h2);
+	Shape s2 = ShapeTransforms.scaledCopyOfLL(s1,0.5,0.5);
+	s2 = ShapeTransforms.translatedCopyOf(s2,150,0);
+	g2.setColor(Color.BLACK); g2.draw(s2);
 	
 	// Here's a house that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
-	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
+	s2 = ShapeTransforms.scaledCopyOfLL(s2,4,4);
+	s2 = ShapeTransforms.translatedCopyOf(s2,150,0);
 	
 	// We'll draw this with a thicker stroke
 	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
@@ -68,45 +64,45 @@ public class AllMyDrawings
 	Stroke orig=g2.getStroke();
 	g2.setStroke(thick);
 	g2.setColor(new Color(0x002FA7)); 
-	g2.draw(h2); 
+	g2.draw(s2); 
 	
-	// Draw two houses with Windows
+	// Draw two present
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	Present sp1 = new Present(50,50,50,50);
+	Present sp2 = new Present(200,200,200,200);
 	
-	g2.draw(hw1);
+	g2.draw(sp1);
 	g2.setColor(new Color(0x8F00FF)); 
 	
-	// Rotate the second house 45 degrees around its center.
-	Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4.0);
+	// Rotate the second square 45 degrees around its center.
+	Shape sp3 = ShapeTransforms.rotatedCopyOf(sp2, Math.PI/4.0);
 	
-	g2.draw(hw3);
+	g2.draw(sp3);
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
+	g2.drawString("A bunch of box and a few present by Alan Tran", 20,20);
     }
     
-     //Draw a different picture with a few houses and coffee cups
+     //Draw a different picture with boxes and present
   
     
     public static void drawPicture3(Graphics2D g2) {
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("A Square and Present by Alan Tran", 20,20);
 	
 	
 	// Draw some coffee cups.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
+	Square largeS = new Square(100,100,100,100);
+	Present smallP = new Present(25,25,25,25);
 	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
+	g2.setColor(Color.RED);     g2.draw(largeS);
+	g2.setColor(Color.GREEN);   g2.draw(smallP);
 	
     }
 }
