@@ -1,11 +1,11 @@
-package edu.ucsb.cs56.drawings.pconrad.advanced;
+package edu.ucsb.cs56.drawings.ttsherpa.advanced;
 import java.awt.geom.GeneralPath;  
 import java.awt.Shape; 
 import java.awt.geom.Rectangle2D;
 
 /**
    A House
-emac      
+      
    @author Phill Conrad 
    @version for CS56, W16, UCSB
    
